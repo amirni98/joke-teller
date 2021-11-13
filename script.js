@@ -26,7 +26,7 @@ function toggle() {
 
 
 async function getJokes() {
-    
+    toggle();
     let joke = '';
     const apiUrl = 'https://v2.jokeapi.dev/joke/Any';
     try {
@@ -39,7 +39,7 @@ async function getJokes() {
             joke = `${data.setup} ... ${data.delivery}`
         }
         console.log(joke);
-        toggle();
+        
         tellMe(joke);
     } catch (error) {
         console.log("error is: ", error);
