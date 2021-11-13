@@ -95,31 +95,26 @@ function toggle() {
 }
 
 
-function getJokes() {
+
+async function getJokes() {
     toggle();
     let joke = '';
     const apiUrl = 'https://v2.jokeapi.dev/joke/Any';
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-        const data = fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-
-            //console.log('error is: ',data);
-            if(data.type === 'single'){
-                joke = data.joke;
-            } else {
-                joke = `${data.setup} ... ${data.delivery}`
-            }
-            console.log(data);
-            
-            tellMe(joke);
-
-        });
+        if(data.type === 'single'){
+            joke = data.joke;
+        } else {
+            joke = `${data.setup} ... ${data.delivery}`
+        }
+        console.log(joke);
         
-        
-
-        
-
+        tellMe(joke);
+    } catch (error) {
+        console.log("error is: ", error);
+    }
 }
 
 button.addEventListener('click' , getJokes);
