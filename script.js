@@ -97,7 +97,7 @@ function toggle() {
 
 
 async function getJokes() {
-    toggle();
+    //toggle();
     let joke = '';
     const apiUrl = 'https://v2.jokeapi.dev/joke/Any';
     try {
@@ -118,5 +118,5 @@ async function getJokes() {
 }
 
 button.addEventListener('click' , getJokes);
-audioElement.addEventListener('ended', toggle);
+//audioElement.addEventListener('ended', toggle);
 //getJokes();
