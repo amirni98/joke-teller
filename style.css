@@ -40,10 +40,10 @@ button:hover {
 
 }
 
-button:active {
+/*button:active {
     transform: scale(0.95);
 
-}
+}*/
 
 button:disabled {
     filter: brightness(30%);
