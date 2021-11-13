@@ -50,10 +50,98 @@ button:disabled {
 
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1300px) {
 
     .container {
-        background-position: center center;
-        background-size: cover;
+        
+        background-position: left center;
+        background-size: 80%;
+
+    }
+
+
+    button {
+        transform: translateX(130px);
+    
+    }
+}
+
+
+
+@media screen and (max-width: 780px) {
+
+    .container {
+        
+        background-position: left center;
+        background-size: 80%;
+
+    }
+
+
+    button {
+        transform: translateX(130px);
+    
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .container {
+        
+        background-position: top center;
+        background-size: 115%;
+
+    }
+
+
+    button {
+        transform: translateY(155px);
+    
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .container {
+        
+        background-position: top center;
+        background-size: 140%;
+
+    }
+
+
+    button {
+        transform: translateY(155px);
+    
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .container {
+        
+        background-position: top center;
+        background-size: 190%;
+
+    }
+
+    button {
+        transform: translateY(145px);
+    
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .container {
+        
+        background-position: top center;
+        background-size: 210%;
+
+    }
+
+    button {
+        transform: translateY(140px);
+    
     }
 }
