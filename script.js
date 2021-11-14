@@ -40,7 +40,7 @@ var VoiceRSS = {
                 if (4 == t.readyState && 200 == t.status) {
                     if (0 == t.responseText.indexOf("ERROR")) throw t.responseText;
                     audioElement.src = t.responseText; 
-                    audioElement.play();
+                    //audioElement.play();
                 }
         }, t.open("POST", "https://api.voicerss.org/", !0), t.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"), t.send(a)
     },
@@ -119,4 +119,7 @@ async function getJokes() {
 
 button.addEventListener('click' , getJokes);
 audioElement.addEventListener('ended', toggle);
+audioElement.addEventListener('canplay', () => {
+    audioElement.play();
+});
 //getJokes();
