@@ -117,9 +117,17 @@ async function getJokes() {
     }
 }
 
-button.addEventListener('click' , getJokes);
+button.addEventListener('click' , () => {
+
+    if(audioElement.hidden)
+        getJokes();
+    else
+        audioElement.hidden = true;
+} );
 audioElement.addEventListener('ended', toggle);
-/* audioElement.addEventListener('canplay', () => {
+audioElement.addEventListener('canplay', () => {
     audioElement.play();
-}); */
+}); 
 //getJokes();
+//if(navigator.userAgent.match('safari'));
+document.write(navigator.userAgent);
