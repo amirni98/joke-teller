@@ -121,7 +121,7 @@ async function getJokes() {
 
 button.addEventListener('click' ,getJokes);
 
-audioElement.addEventListener('loadeddata', () => {
+audioElement.addEventListener('loadedmetadata', () => {
     
     if(ios_flag)
         audioElement.hidden = false;  
