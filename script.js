@@ -119,7 +119,7 @@ async function getJokes() {
 
 button.addEventListener('click' , getJokes);
 audioElement.addEventListener('ended', toggle);
-audioElement.addEventListener('canplay', () => {
+/* audioElement.addEventListener('canplay', () => {
     audioElement.play();
-});
+}); */
 //getJokes();
