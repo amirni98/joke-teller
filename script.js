@@ -1,6 +1,7 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
-
+const OS = navigator.userAgent;
+let ios_flag = false;
 
 "use strict";
 var VoiceRSS = {
@@ -98,6 +99,8 @@ function toggle() {
 
 async function getJokes() {
     toggle();
+    if(ios_flag)
+        audioElement.hidden = false;
     let joke = '';
     const apiUrl = 'https://v2.jokeapi.dev/joke/Any';
     try {
@@ -117,17 +120,15 @@ async function getJokes() {
     }
 }
 
-button.addEventListener('click' , () => {
-
-    if(audioElement.hidden)
-        getJokes();
-    else
-        audioElement.hidden = true;
-} );
-audioElement.addEventListener('ended', toggle);
+button.addEventListener('click' ,getJokes);
+audioElement.addEventListener('ended', () => {
+    toggle();
+    audioElement.hidden = true;    
+});
 audioElement.addEventListener('canplay', () => {
     audioElement.play();
 }); 
 //getJokes();
-//if(navigator.userAgent.match('safari'));
-document.write(navigator.userAgent);
+if((OS.match('iPhone')||
+    OS.match('iPad')))
+    ios_flag = true;
