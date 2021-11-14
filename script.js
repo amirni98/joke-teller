@@ -86,7 +86,7 @@ function tellMe(joke) {
         v: 'Linda',
         r: 0, 
         c: 'wav',
-        f: '12khz_16bit_stereo',
+        f: '24khz_16bit_stereo',
         ssml: false
     });
 }
@@ -99,8 +99,7 @@ function toggle() {
 
 async function getJokes() {
     toggle();
-    if(ios_flag)
-        audioElement.hidden = false;
+    
     let joke = '';
     const apiUrl = 'https://v2.jokeapi.dev/joke/Any';
     try {
@@ -121,6 +120,12 @@ async function getJokes() {
 }
 
 button.addEventListener('click' ,getJokes);
+
+audioElement.addEventListener('loadeddata', () => {
+    
+    if(ios_flag)
+        audioElement.hidden = false;  
+});
 audioElement.addEventListener('ended', () => {
     toggle();
     audioElement.hidden = true;    
